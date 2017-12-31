@@ -57,7 +57,7 @@ public class Blog implements Serializable{
 
     @Column(nullable=false)
     @CreationTimestamp
-    private Timestamp creatTime;
+    private Timestamp createTime;
 
     @Column(name = "readSize")
     private Integer readSize = 0;
