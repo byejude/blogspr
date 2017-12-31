@@ -22,7 +22,11 @@ public interface EsBlogService {
 
     Page<EsBlog> listEsBlogs(Pageable pageable);
 
-    List<TagVo> listTopTags();
+    List<EsBlog> listTop5NewestEsBlogs();
 
-    List<User> listTop12User();
+    List<EsBlog> listTop5HotestEsBlogs();
+
+    List<TagVo> listTop30Tags();
+
+    List<User> listTop12Users();
 }

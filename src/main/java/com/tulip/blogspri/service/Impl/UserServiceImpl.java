@@ -26,10 +26,10 @@ public class UserServiceImpl implements UserService,UserDetailsService {
         return userRepository.save(user);
     }
 
+    @Transactional
     @Override
     public void removeUser(Long id) {
         userRepository.delete(id);
-
     }
 
     @Override
@@ -65,6 +65,8 @@ public class UserServiceImpl implements UserService,UserDetailsService {
         return userRepository.findByUsernameIn(usernames);
     }
 
+
+    //继承自UserDetailsService
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return userRepository.findByUsername(username);

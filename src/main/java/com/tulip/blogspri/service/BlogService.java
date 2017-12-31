@@ -1,7 +1,7 @@
 package com.tulip.blogspri.service;
 
-import com.sun.org.apache.xml.internal.resolver.Catalog;
 import com.tulip.blogspri.domain.Blog;
+import com.tulip.blogspri.domain.Catalog;
 import com.tulip.blogspri.domain.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -20,7 +20,7 @@ public interface BlogService {
 
     Page<Blog> listBlogsByCatalog(Catalog catalog, Pageable pageable);
 
-    Page<Blog> listBlogByCatalog(Catalog catalog,Pageable pageable);
+    Page<Blog> listBlogByCatalog(Catalog catalog, Pageable pageable);
 
     void readingIncrease(Long id);
 
