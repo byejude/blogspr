@@ -54,7 +54,7 @@ public class User implements UserDetails,Serializable {
     @Column(length = 200)
     private String avatar;
 
-    @ManyToMany(cascade = CascadeType.DETACH,fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.DETACH,fetch = FetchType.LAZY)
     @JoinTable(name="use_authority",joinColumns = @JoinColumn(name = "use_id",referencedColumnName = "id"),
     inverseJoinColumns = @JoinColumn(name = "authority_id",referencedColumnName = "id"))
     private List<Authority> autorities;

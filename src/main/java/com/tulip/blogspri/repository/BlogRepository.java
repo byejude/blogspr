@@ -13,9 +13,9 @@ public interface BlogRepository extends CrudRepository<Blog,Long> {
     @Deprecated
     Page<Blog> findByUserAndTitleLikeOrderByCreateTimeDesc(User user, String title, Pageable pageable);
 
-    Page<Blog> findByUserAndtAndTitleLike(User user,String title,Pageable pageable);
+    Page<Blog> findByUserAndTitleLike(User user,String title,Pageable pageable);
 
-    Page<Blog> findByTitleLikeAndUserOrTagsLikeUserOrderByCreateTimeDesc(String title,User user,String tags,User user2,Pageable pageable);
+    Page<Blog> findByTitleLikeAndUserOrTagsLikeAndUserOrderByCreateTimeDesc(String title,User user,String tags,User user2,Pageable pageable);
 
     Page<Blog> findByCatalog(Catalog catalog,Pageable pageable);
 }

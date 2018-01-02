@@ -59,7 +59,7 @@ public class BlogServiceImpl implements BlogService{
     public Page<Blog> listBlogByTitleVote(User user, String title, Pageable pageable) {
         title = "%"+title+"%";
         String tags = title;
-        Page<Blog> blogs = blogRepository.findByTitleLikeAndUserOrTagsLikeUserOrderByCreateTimeDesc(title,user, tags,user, pageable);
+        Page<Blog> blogs = blogRepository.findByTitleLikeAndUserOrTagsLikeAndUserOrderByCreateTimeDesc(title,user, tags,user, pageable);
         return blogs;
     }
 
@@ -67,7 +67,7 @@ public class BlogServiceImpl implements BlogService{
     public Page<Blog> listBlogsByTitleVoteAndSort(User user, String title, Pageable pageable) {
 
         title = "%"+title+"%";
-        Page<Blog>blogs = blogRepository.findByUserAndtAndTitleLike(user, title, pageable);
+        Page<Blog>blogs = blogRepository.findByUserAndTitleLike(user, title, pageable);
         return blogs;
     }
 
