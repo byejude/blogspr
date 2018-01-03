@@ -28,5 +28,8 @@ public class Vote implements Serializable {
     @CreationTimestamp
     private Timestamp creatTime;
 
+    public Vote(User user){
+        this.user = user;
+    }
 
 }

@@ -12,7 +12,7 @@ import java.sql.Timestamp;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
+
 @Entity
 public class Comment implements Serializable{
 
@@ -35,4 +35,9 @@ public class Comment implements Serializable{
     @org.hibernate.annotations.CreationTimestamp  // 由数据库自动创建时间
     private Timestamp createTime;
 
+
+    public Comment(User user,String content){
+        this.content = content;
+        this.user = user;
+    }
 }

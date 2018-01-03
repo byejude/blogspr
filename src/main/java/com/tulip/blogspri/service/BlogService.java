@@ -20,15 +20,13 @@ public interface BlogService {
 
     Page<Blog> listBlogsByCatalog(Catalog catalog, Pageable pageable);
 
-    Page<Blog> listBlogByCatalog(Catalog catalog, Pageable pageable);
-
     void readingIncrease(Long id);
 
     Blog creatComment(Long blogId,String commentContent);
 
     void removeComment(Long blogId,Long commentId);
 
-    Blog createVote(Long blogId);
+    Blog createVote(Long blogId)throws Exception;
 
-    void removeVote(Long blogId,Long voteId);
+    void removeVote (Long blogId,Long voteId);
 }
