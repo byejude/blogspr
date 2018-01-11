@@ -67,5 +67,32 @@ public class CatalogController {
         return ResponseEntity.ok().body(new Response(false, "处理成功",null));
     }
 
+    @DeleteMapping("/{id}")
+    @PreAuthorize("authentication.name.equals(#username)")
+    public ResponseEntity<Response> delete(String username,@PathVariable("id") Long id){
+        try{
+            catalogService.removeCatalog(id);
+        }catch (ConstraintViolationException e){
+            return ResponseEntity.ok().body(new Response(false, ConstraintViolationExceptinHandler.getMessasge(e)));
+        }catch (Exception e){
+            return ResponseEntity.ok().body(new Response(false, e.getMessage()));
+        }
+
+        return ResponseEntity.ok().body(new Response(false, "处理成功",null));
+    }
+
+    @GetMapping("/edit")
+    public String getCatalogEdit(Model model){
+        Catalog catalog = new Catalog(null, null);
+        model.addAttribute("catalog",catalog);
+        return "/userspace/catalogedit";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String getCatalogById(@PathVariable("id") Long id,Model model){
+        Catalog catalog = catalogService.getCatalogById(id);
+        return "/userspace/catalogedit";
+    }
+
 
 }

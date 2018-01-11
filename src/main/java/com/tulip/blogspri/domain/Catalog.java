@@ -12,7 +12,6 @@ import java.io.Serializable;
 @Entity
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class Catalog implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -30,5 +29,10 @@ public class Catalog implements Serializable {
     @JoinColumn(name="user_id")
     private User user;
 
+
+    public Catalog(User user, String name) {
+        this.name = name;
+        this.user = user;
+    }
 
 }
