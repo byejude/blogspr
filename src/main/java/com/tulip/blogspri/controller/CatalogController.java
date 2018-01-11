@@ -3,7 +3,7 @@ package com.tulip.blogspri.controller;
 import com.tulip.blogspri.domain.Catalog;
 import com.tulip.blogspri.domain.User;
 import com.tulip.blogspri.service.CatalogService;
-import com.tulip.blogspri.utils.ConstraintViolationExceptinHandler;
+import com.tulip.blogspri.utils.ConstraintViolationExceptionHandler;
 import com.tulip.blogspri.vo.CatalogVo;
 import com.tulip.blogspri.vo.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,7 +60,7 @@ public class CatalogController {
             catalog.setUser(user);
             catalogService.saveCatalog(catalog);
         }catch (ConstraintViolationException e){
-            return ResponseEntity.ok().body(new Response(false, ConstraintViolationExceptinHandler.getMessasge(e)));
+            return ResponseEntity.ok().body(new Response(false, ConstraintViolationExceptionHandler.getMessasge(e)));
         }catch (Exception e){
             return ResponseEntity.ok().body(new Response(false, e.getMessage()));
         }
@@ -73,7 +73,7 @@ public class CatalogController {
         try{
             catalogService.removeCatalog(id);
         }catch (ConstraintViolationException e){
-            return ResponseEntity.ok().body(new Response(false, ConstraintViolationExceptinHandler.getMessasge(e)));
+            return ResponseEntity.ok().body(new Response(false, ConstraintViolationExceptionHandler.getMessasge(e)));
         }catch (Exception e){
             return ResponseEntity.ok().body(new Response(false, e.getMessage()));
         }

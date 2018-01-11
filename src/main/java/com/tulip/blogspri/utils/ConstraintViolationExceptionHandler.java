@@ -8,7 +8,7 @@ import javax.validation.ConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConstraintViolationExceptinHandler {
+public class ConstraintViolationExceptionHandler {
     @ExceptionHandler
     public static String getMessasge(ConstraintViolationException e){
         List<String> msgList = new ArrayList<>();
