@@ -20,7 +20,7 @@ import java.util.List;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
+
 @Entity
 public class User implements UserDetails,Serializable {
 
@@ -59,7 +59,12 @@ public class User implements UserDetails,Serializable {
     inverseJoinColumns = @JoinColumn(name = "authority_id",referencedColumnName = "id"))
     private List<Authority> autorities;
 
-
+    public User(Long id, String name, String username, String email) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.username = username;
+    }
 
     public void setEncodePassword(String password) {
         PasswordEncoder encoder = new BCryptPasswordEncoder();
